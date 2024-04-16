@@ -11,31 +11,55 @@
     <body>
         <div class="hamburger">
             <h2>Hamburger</h2>
-            <form action="" method="post">
-                <p>Choose size
-                    <select name="size" id="size">
-                        <option value="Маленький">Маленький 50</option>
-                        <option value="Большой">Большой 100</option>
-                    </select>
-                </p>
-                <p>Choose stuffing
-                    <select name="stuffing" id="stuffing">
-                        <option value="C сыром">C сыром +10</option>
-                        <option value="C салатом">C салатом +20</option>
-                        <option value="C картофелем">C картофелем +15</option>
-                    </select>
-                </p>
+            <form action="" method="post" name="burger">
+                <fieldset>
+                    <p>видов гамбургеров
+                        <select name="size" id="size">
+                            <option value="Маленький">Маленький (50 рублей, 20 калорий)</option>
+                            <option value="Большой">Большой (100 рублей, 40 калорий)</option>
+                        </select>
+                    </p>
+                    <p>видов начинок
+                        <select name="stuffing" id="stuffing">
+                            <option value="C сыром">С сыром (+10 рублей, +20 калорий)</option>
+                            <option value="C салатом">С салатом (+20 рублей, +5 калорий)</option>
+                            <option value="C картофелем">С картофелем (+15 рублей, +10 калорий)</option>
+                        </select>
+                    </p>
+                </fieldset>
                 <fieldset class="toppings">
-                    <p>add powder
+                    <p>посыпать приправой (+15 рублей, +0 калорий)
                         <input name="topping" id="powder" type="checkbox" value="приправа">
                     </p>
-                    <p>add mayonnaise
+                    <p>полить майонезом (+20 рублей, +5 калорий)
                         <input name="topping" id="mayonnaise" type="checkbox" value="майонез">
                     </p>
                 </fieldset>
-                <button type="button" class="calc-btn">Calculate order</button>
+                <p><button type="button" class="calc-btn">рассчитать стоимость и калорийность</button></p>
                 <div class="print"></div>
             </form>
+            <br>
+            <hr>
+            <br>
+            <form action="" method="post" name="user">
+                <p>your name:
+                    <input type="text" placeholder="name" required id="name">
+                </p>
+                <p>your email:
+                    <input type="email" placeholder="email" required id="email">
+                </p>
+                <p>your phone:
+                    <input type="text" placeholder="+7(000)000-0000" required id="phone">
+                </p>
+                <p>your message:
+                    <textarea type="text" placeholder="message" required id="message"></textarea>
+                </p>
+                <button type="submit" id="submit-btn">submit</button>
+            </form>
+            <br>
+            <div class="send"></div>
+            <hr>
+            <br>
         </div>
         <div class="quotes">
             <p class="in">

@@ -151,3 +151,41 @@ let str = 'По отчёту за 2022 год выручка составила 
 const regex = /(?<!\d)\.|\.(?!\d)/g; // экранируем точку, используем негативный и позитивный просмотр вперёд и назад для исключения точек, находящихся внутри чисел
 let result = str.replace(regex, ',');
 console.log(result); // По отчёту за 2022 год выручка составила 12,345,678 рублей.
+
+const userForm = document.forms.user;
+const regexName = /^[A-zА-яЁё]{2,30}$/;
+const regexEmail = /^[A-z]{2,20}(\.|\-)*[A-z]{2,20}@[A-z]{2,20}\.[A-z]{2}$/;
+const regexPhone = /^\+7\(\d{3}\)\d{3}\-\d{4}$/;
+
+const submitBtn = document.getElementById('submit-btn');
+const sendPrint = document.querySelector('.send');
+
+userForm.name.addEventListener('change', () => {
+    console.log('change name');
+    userForm.name.style.border = '1px solid grey';
+});
+
+userForm.email.addEventListener('change', () => {
+    userForm.email.style.border = '1px solid grey';
+});
+
+userForm.phone.addEventListener('change', () => {
+    userForm.phone.style.border = '1px solid grey';
+});
+
+submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (!regexName.test(userForm.name.value.trim())) {
+        userForm.name.style.border = '1px solid red';
+        return;
+    }
+    if (!regexEmail.test(userForm.email.value.trim())) {
+        userForm.email.style.border = '1px solid red';
+        return;
+    }
+    if (!regexPhone.test(userForm.phone.value.trim())) {
+        userForm.phone.style.border = '1px solid red';
+        return;
+    }
+    sendPrint.textContent = 'Success! All your data was sent!';
+});
