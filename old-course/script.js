@@ -138,3 +138,16 @@ const calcBtn = document.querySelector('.calc-btn');
 calcBtn.addEventListener('click', () => {
     createHamburgerHtml();
 });
+
+const inStr = document.querySelector('.in').textContent;
+const regexpIn = /(?<=\s)'|'(?=\s)|^'|'$|'(?=\.)/gm;
+
+const outStr = document.querySelector('.out');
+outStr.textContent = inStr.replace(regexpIn, '"');
+
+// Замена всех точек в тексте на запятые, кроме точек, которые находятся внутри чисел.
+
+let str = 'По отчёту за 2022 год выручка составила 12.345.678 рублей. Hi. guy.';
+const regex = /(?<!\d)\.|\.(?!\d)/g; // экранируем точку, используем негативный и позитивный просмотр вперёд и назад для исключения точек, находящихся внутри чисел
+let result = str.replace(regex, ',');
+console.log(result); // По отчёту за 2022 год выручка составила 12,345,678 рублей.
